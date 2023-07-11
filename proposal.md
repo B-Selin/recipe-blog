@@ -47,7 +47,7 @@ search.ejs - Display search results<br>
 
 Use Google Oauth for authenticaion
 
-### Trello Board: LINK TO THE BOARD
+### Trello Board: https://trello.com/b/8TjLXywF/food-blog
 
 #### Ice Box:
 
