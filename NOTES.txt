@@ -1,3 +1,5 @@
+* DAY 1
+
 ** HOW TO CREATE THE RECIPES PAGE WITH THE LIST OF ALL THE RECIPES
 
 1- Createw a route in routes/recipes.js to handle the index page:
@@ -35,3 +37,53 @@ This will handle the routes
 5- Add a link to the index page in views/partials/header.ejs so when a user clicks this link, it will send a GET request to /recipes.:
 
 <a href="/recipes">All Recipes</a>
+
+
+* DAY 2
+
+**HOW TO ADD/CREATE AND SHOW INDIVIDUAL RECIPES
+
+1- Created a GET route in routes/recipes.js to display the form:
+// GET /recipes/new
+router.get('/new', recipesCtrl.new);
+
+
+2- Defined the controller function in controllers/recipes.js:
+// Render new recipe form
+function newRecipe(req, res) {
+  res.render('recipes/new');
+}
+
+3- Created the new recipe form view at views/recipes/new.ejs
+
+<form method="POST" action="/recipes">
+  <label>Title:</label>
+  <input type="text" name="title">
+  ...and others
+  
+  <button type="submit">Submit</button>
+</form>
+The form POSTs to /recipes to handle submission.
+
+4- Created a GET route in routes/recipes.js to show single recipe:
+
+// GET /recipes/:id
+router.get('/:id', recipesCtrl.show);
+
+5- Defined the controller function:
+
+// Get recipe by id and render show view
+
+async function showRecipe(req, res) {
+  const recipe = await Recipe.findById(req.params.id);
+  res.render('recipes/show', { recipe }); 
+}
+
+---- also added the unicorn in here, to include the user info in the recipe thats being created ---
+
+
+6- Created the show template at views/recipes/show.ejs :
+
+<h1><%= recipe.title %></h1>
+
+<p><%= recipe.instructions %></p>
