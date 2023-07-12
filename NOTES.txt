@@ -1,0 +1,37 @@
+** HOW TO CREATE THE RECIPES PAGE WITH THE LIST OF ALL THE RECIPES
+
+1- Createw a route in routes/recipes.js to handle the index page:
+
+ // GET /recipes 
+router.get('/', recipesCtrl.index);
+
+2- Define the index controller function in controllers/recipes.js :
+the render link has to have the '/index' at the end, because 'recipes/index' is the ejs file that we are listing all the recipes
+
+async function index(req, res) {
+  const recipes = await Recipe.find({});
+  res.render('recipes/index', { recipes });
+}
+
+This queries the Recipe model for all recipes, and passes them to the index view.
+
+3- Create the index view at views/recipes/index.ejs :
+
+<!-- Loop through recipes and display -->
+<% recipes.forEach(function(r) { %>
+  <li><%= r.title %></li>  
+<% }) %>
+
+This loops through the recipes data and displays the title of each one. We are going to change this into an href later
+
+4- Import the recipes router in server.js:
+
+const recipesRouter = require('./routes/recipes');
+
+app.use('/recipes', recipesRouter); 
+
+This will handle the routes
+
+5- Add a link to the index page in views/partials/header.ejs so when a user clicks this link, it will send a GET request to /recipes.:
+
+<a href="/recipes">All Recipes</a>
