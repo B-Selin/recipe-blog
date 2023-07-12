@@ -1,5 +1,19 @@
 <%- include('../partials/header') %>
 
-<!-- Create the  -->
+<!-- show the title of the recipe-->
+
+<h1><%= recipe.title %></h1>
+
+<!-- show the ingredients as an unordered list  -->
+<h3>Ingredients</h3>
+<ul>
+
+  <li><%= recipe.ingredients %> </li>
+
+</ul>
+<!-- explain how to make the recipe -->
+<h3>How to:</h3>
+<p><%= recipe.howTo %></p>
+
 
 <%- include('../partials/footer') %>

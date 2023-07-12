@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<!-- Create the new recipe by adding the ingredients one by one, and adding the howTo as one string-->
+<h1>Add New Recipe</h1>
+<form id="new-form" action="/recipes" method="POST">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title">
+
+  <label for="ingredients">Ingredients:</label>
+  <textarea id="ingredients" name="ingredients">eggs</textarea>
+  <textarea id="amount" name="amount">1/2 cup</textarea>
+
+  <label for="howTo">How to:</label>
+  <textarea id="howTo" name="howTo"></textarea>
+  
+  <button type="submit">Save Recipe</button>
+</form>
+
+<%- include('../partials/footer') %>

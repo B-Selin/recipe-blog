@@ -6,8 +6,19 @@ const Schema = mongoose.Schema;
 // recipes should have an ingredients array, where each ingredient is stored as a single item on an array, and a how to section with a string
 
 const recipeSchema = new Schema({
-  ingredients: [String],
-  howTo: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  ingredients: {
+    type: String,
+    amount: String,
+    required: true,
+  },
+  howTo: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Recipe", recipeSchema);
