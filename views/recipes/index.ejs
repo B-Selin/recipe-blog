@@ -1,4 +1,14 @@
 <%- include('../partials/header') %>
 
+<!-- create the index page with a link list of every recipe added  -->
+<h3>What food are you craving today?</h3>
+
+<section id="list">
+  <ul>
+    <% recipes.forEach(function(r) { %>
+      <li><a href="/recipes/<%= r._id %>"><%= r.title %></a></li>
+    <% }) %>
+  </ul>
+</section>
 
 <%- include('../partials/footer') %>

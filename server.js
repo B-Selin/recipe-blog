@@ -14,6 +14,8 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+// create the variable for the routers we are going to create
+var recipesRouter = require("./routes/recipes");
 
 var app = express();
 
@@ -47,6 +49,7 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/recipes", recipesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
