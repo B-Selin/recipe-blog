@@ -13,7 +13,14 @@ a {
 
 
 
-
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 1rem;
+  width: 100%;
+  color: darkgray;
+  text-align: center;
+}
 
 .login {
   display: flex;
