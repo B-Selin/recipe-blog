@@ -6,7 +6,22 @@ module.exports = {
   create,
   show,
   delete: deleteRecipe,
+  edit,
+  update,
 };
+
+async function update(req, res) {
+  req.body.done = !!req.body.done;
+
+  await Recipe.findByIdAndUpdate(req.params.id, req.body);
+  res.redirect(`/recipes/${req.params.id}`);
+}
+
+async function edit(req, res) {
+  const recipe = await Recipe.findById(req.params.id);
+  console.log(recipe);
+  res.render("recipes/edit", { recipe });
+}
 
 // delete the recipe as the owner user of that recipe
 async function deleteRecipe(req, res) {
@@ -21,7 +36,7 @@ async function deleteRecipe(req, res) {
 // Indexing all the recipes we have in the recipe/index page
 async function index(req, res) {
   const recipes = await Recipe.find({});
-  console.log(recipes);
+
   res.render("recipes/index", { recipes });
 }
 
@@ -49,6 +64,6 @@ async function create(req, res) {
 // define an async show function
 async function show(req, res) {
   const recipe = await Recipe.findById(req.params.id).populate("user");
-  console.log(recipe);
+
   res.render("recipes/show", { recipe });
 }

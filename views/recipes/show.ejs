@@ -23,8 +23,9 @@
 <!-- Make edit and delete buttons visible if only the user id matches the user who posted the recipe -->
 <% if(user._id.equals(recipe.user._id)) { %>
   <div class="recipe-buttons">
-    <!-- edit button -->
-    <button><a href="/recipes/<%= recipe._id %>/edit">Edit</a></button>
+    <!-- edit button that will send user to edit form -->
+    <button><a href="/recipes/<%= recipe._id %>/edit" class="btn btn-warning">Edit</a></button>
+
 
     <!-- delete button -->
     <form id="delete" action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">

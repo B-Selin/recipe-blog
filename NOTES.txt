@@ -100,3 +100,81 @@ async function show(req, res) {
   console.log(recipe);
   res.render("recipes/show", { recipe });
 }
+
+
+* DAY 3
+
+** HOW TO IMPLEMENT DELETE FUNCIONALITY 
+
+1- A delete button is added to the recipe show page:
+
+<form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete</button>
+</form>
+
+Clicking this button sends a POST request to /recipes/:id with query parameter _method=DELETE.
+
+2- The request hits the DELETE route in routes/recipes.js:
+router.delete('/:id', recipesCtrl.delete);
+
+3- This calls the deleteRecipe controller method:
+async function deleteRecipe(req, res)  
+
+The method gets the recipe id from req.params.id:
+const id = req.params.id;
+
+It queries the database to find the recipe by id:
+const recipe = await Recipe.findById(id);
+
+It removes the recipe document:
+await recipe.remove(); 
+
+And redirects back to the recipes index page:
+res.redirect('/recipes');
+
+The delete button sends a DELETE request, the route calls the controller, the controller deletes the recipe from the DB based on the id, and redirects once deleted.
+
+
+** HOW TO EDIT RECIPES
+
+1- A route is defined to handle displaying the edit form:
+
+// GET /recipes/:id/edit
+router.get('/:id/edit', recipesCtrl.edit);
+
+2- The edit controller handles finding the recipe by id and rendering the edit view:
+async function edit(req, res) {
+  const recipe = await Recipe.findById(req.params.id);
+  res.render('recipes/edit', {recipe});
+} 
+
+3- The edit view displays a form for editing the recipe:
+<form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+
+  <input name="title" value="<%= recipe.title %>">
+  recipe.ingredients
+  recipe.howTo
+
+</form>
+Submitting the form sends a PUT request to update the recipe.
+
+4- The PUT route handles the update:
+
+// PUT /recipes/:id
+router.put('/:id', recipesCtrl.update);
+
+5- The update controller handles finding the recipe, updating it, and saving:
+
+async function update(req, res) {
+
+  const recipe = await Recipe.findById(req.params.id);
+
+  recipe.title = req.body.title;
+  recipe.ingredients = req.body.ingredients;
+  // update properties
+
+  await recipe.save();
+  
+  res.redirect(`/recipes/${recipe._id}`);
+}
+The edit view displays a form, submit sends a PUT request, the route calls the update controller, which updates the recipe in the database and redirects.

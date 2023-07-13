@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<!-- Create the new recipe by adding the ingredients one by one, and adding the howTo as one string-->
+
+
+<form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
+  <input name="title" value="<%= recipe.title %>"><br>
+  <input name="ingredients" value="<%= recipe.ingredients %>"><br>
+  <input name="amount" value="<%= recipe.amount %>"><br>
+  <textarea name="howTo"><%= recipe.howTo %></textarea><br>
+  <button type="submit">Update Recipe</button>
+</form>
+
+<%- include('../partials/footer') %>

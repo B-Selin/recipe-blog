@@ -22,5 +22,11 @@ router.get("/:id", recipesCtrl.show);
 // delete recipes as the user who added that recipe to the database
 router.delete("/:id", ensureLoggedIn, recipesCtrl.delete);
 
+// GET /recipes/:id/edit
+router.get("/:id/edit", recipesCtrl.edit);
+
+// PUT /recipes/:id
+router.put("/:id", recipesCtrl.update);
+
 // Do not forget to export routers
 module.exports = router;
