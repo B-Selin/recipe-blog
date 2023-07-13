@@ -14,7 +14,6 @@ const reviewSchema = new Schema(
       required: true,
     },
     userName: String,
-    userAvatar: String,
   },
   {
     timestamps: true,
@@ -26,11 +25,13 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  ingredients: {
-    type: String,
-    amount: String,
-    required: true,
-  },
+  ingredients: [
+    {
+      type: String,
+      amount: String,
+      required: true,
+    },
+  ],
   howTo: {
     type: String,
     required: true,
