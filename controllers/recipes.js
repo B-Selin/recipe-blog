@@ -5,11 +5,20 @@ module.exports = {
   new: newRecipe,
   create,
   show,
-  // delete: deleteRecipe,
+  delete: deleteRecipe,
 };
 
+// delete the recipe as the owner user of that recipe
+async function deleteRecipe(req, res) {
+  try {
+    await Recipe.deleteOne({ _id: req.params.id });
+    res.redirect("/recipes");
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 // Indexing all the recipes we have in the recipe/index page
-//
 async function index(req, res) {
   const recipes = await Recipe.find({});
   console.log(recipes);
@@ -43,19 +52,3 @@ async function show(req, res) {
   console.log(recipe);
   res.render("recipes/show", { recipe });
 }
-
-// // delete the recipe as the owner user of that recipe
-// async function deleteRecipe(req, res) {
-//   const recipe = await Recipe.findById({
-//     "recipes._id": req.params.id,
-//     "recipes.user": req.user._id,
-//   });
-//   if (!recipe) return res.redirect("/recipes");
-
-//   // Remove the recipe using the remove method available on Mongoose arrays
-//   recipe.remove(req.params.id);
-//   // Save the updated
-//   await recipes.save();
-//   // Redirect back to the recipe's show view
-//   res.redirect(`/recipes/${recipe._id}`);
-// }

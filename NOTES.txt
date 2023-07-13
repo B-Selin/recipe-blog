@@ -87,3 +87,16 @@ async function showRecipe(req, res) {
 <h1><%= recipe.title %></h1>
 
 <p><%= recipe.instructions %></p>
+
+** ADD USER INFO TO RECIPE **
+
+1- In the new recipe form, add author fields:
+<p>By <%= recipe.user.name %></p>
+
+2- In the recipes show function, populate user.
+
+async function show(req, res) {
+  const recipe = await Recipe.findById(req.params.id).populate("user");
+  console.log(recipe);
+  res.render("recipes/show", { recipe });
+}

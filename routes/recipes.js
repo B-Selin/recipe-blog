@@ -16,11 +16,11 @@ router.get("/new", ensureLoggedIn, recipesCtrl.new);
 //POST /recipes -- we want to create a new recipe and then redirect to its show page
 router.post("/", ensureLoggedIn, recipesCtrl.create);
 
-// // delete recipes as the user who added that recipe to the database
-// router.delete("/:id", ensureLoggedIn, recipesCtrl.delete);
-
 //GET /recipes/:id (show functionality)
 router.get("/:id", recipesCtrl.show);
+
+// delete recipes as the user who added that recipe to the database
+router.delete("/:id", ensureLoggedIn, recipesCtrl.delete);
 
 // Do not forget to export routers
 module.exports = router;
