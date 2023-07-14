@@ -18,6 +18,8 @@
 <!-- explain how to make the recipe -->
 <h3>How to:</h3>
 <p><%= recipe.howTo %></p>
+
+
 <div class="comments"> 
   <% if (recipe.reviews.length) { %>
     <table>
@@ -31,7 +33,6 @@
       <tbody>
         <% recipe.reviews.forEach(function(r) { %>
           <tr>
-            
             <td><%= r.createdAt.toLocaleDateString() %></td>
             <td><%= r.content %></td>
             <td class="review-user"><%= r.userName %></td>
@@ -67,15 +68,14 @@
         <input type="submit" value="Delete">
       </form>
     </div>
-
-    <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
     
-    <input type="submit" value="Add Review">
   </form>
 
   <% }; %>
+  <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
+  <label>Review:</label>
+  <textarea name="content"></textarea>
+  <input type="submit" value="Add Review">
 <% }; %>
 
   
