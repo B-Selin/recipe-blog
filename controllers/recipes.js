@@ -1,5 +1,5 @@
 const Recipe = require("../models/recipe");
-const Ingredient = require("../models/ingredient");
+const Review = require("../models/review");
 
 module.exports = {
   index,
@@ -67,6 +67,6 @@ async function create(req, res) {
 async function show(req, res) {
   const recipe = await Recipe.findById(req.params.id)
     .populate("user")
-    .populate("ingredients");
+    .populate("reviews");
   res.render("recipes/show", { recipe });
 }

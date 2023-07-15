@@ -7,7 +7,8 @@ const reviewsCtrl = require("../controllers/reviews");
 // Require the auth middleware
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
-// POST /recipes/:id/reviews (create review for a rvipe)
+// POST (create review
+
 router.post("/recipes/:id/reviews", ensureLoggedIn, reviewsCtrl.create);
 
 // DELETE /reviews

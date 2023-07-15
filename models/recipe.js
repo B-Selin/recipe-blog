@@ -1,24 +1,7 @@
 const mongoose = require("mongoose");
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
-
-const reviewSchema = new Schema(
-  {
-    content: {
-      type: String,
-      required: true,
-    },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    userName: String,
-  },
-  {
-    timestamps: true,
-  }
-);
+const Review = require("./review");
 
 const recipeSchema = new Schema({
   title: {
@@ -38,7 +21,12 @@ const recipeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  reviews: [reviewSchema],
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Recipe", recipeSchema);
