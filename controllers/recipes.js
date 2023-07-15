@@ -1,4 +1,5 @@
 const Recipe = require("../models/recipe");
+const Ingredient = require("../models/ingredient");
 
 module.exports = {
   index,
@@ -50,6 +51,7 @@ async function create(req, res) {
   // include logged in users id and name
   req.body.user = req.user._id;
   req.body.username = req.user.name;
+
   try {
     const recipe = await Recipe.create(req.body);
     res.redirect(`/recipes/${recipe._id}`);
@@ -63,7 +65,8 @@ async function create(req, res) {
 
 // define an async show function
 async function show(req, res) {
-  const recipe = await Recipe.findById(req.params.id).populate("user");
-
+  const recipe = await Recipe.findById(req.params.id)
+    .populate("user")
+    .populate("ingredients");
   res.render("recipes/show", { recipe });
 }

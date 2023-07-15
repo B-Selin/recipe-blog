@@ -178,3 +178,13 @@ async function update(req, res) {
   res.redirect(`/recipes/${recipe._id}`);
 }
 The edit view displays a form, submit sends a PUT request, the route calls the update controller, which updates the recipe in the database and redirects.
+
+
+
+<!-- show the ingredients as an unordered list 
+<h3>Ingredients</h3>
+<ul>
+  <% recipe.ingredients.forEach(function(ingredient){ %>
+    <li><%= ingredient.name %> - <%= ingredient.amount %></li>  
+  <% }) %>
+</ul> -->

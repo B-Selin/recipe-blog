@@ -17,7 +17,7 @@ const usersRouter = require("./routes/users");
 // create the variable for the routers we are going to create
 const recipesRouter = require("./routes/recipes");
 const reviewsRouter = require("./routes/reviews");
-
+// const ingredientsRouter = require("./routes/ingredients");
 var app = express();
 
 // view engine setup
@@ -52,6 +52,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/recipes", recipesRouter);
 app.use("/", reviewsRouter);
+// app.use("/", ingredientsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

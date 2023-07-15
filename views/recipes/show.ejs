@@ -70,8 +70,9 @@
     </div>
     
   </form>
-
   <% }; %>
+  <!-- keep the 'add comment' section out of the if(user._id.equals(recipe.user._id) conditional, but inside the if (user) conditional -->
+  <!-- Logged in users can capp comments -->
   <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
   <label>Review:</label>
   <textarea name="content"></textarea>

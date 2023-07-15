@@ -1,10 +1,6 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
+  padding: 5rem;
+  font: 10rem "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 
@@ -22,13 +18,10 @@ a {
   text-align: center;
 }
 
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-}
+
 
 .login img {
-  height: 30px;
+  height: 2rem;
+  justify-content: right;
+  align-items: center;
 }
