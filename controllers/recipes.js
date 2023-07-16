@@ -51,8 +51,29 @@ async function create(req, res) {
   req.body.user = req.user._id;
   req.body.username = req.user.name;
 
+  // Split the ingredientListHidden string by "-"
+
+  const ingredientsArray = req.body.ingredientListHidden.split(',')
+  .flatMap(item => item.trim().split(' - '))
+  .map(item => item.trim());
+
+
+  // Create a new array to hold the separated ingredients
+  const ingredients = [];
+
+  // Iterate over the ingredientsArray in steps of 2
+  for (let i = 0; i < ingredientsArray.length-1; i += 2) {
+    const ingredient = ingredientsArray[i];
+    const amount = ingredientsArray[i + 1];
+    const ingredientObject = { name: ingredient, amount: amount };
+    ingredients.push(ingredientObject);
+  }
+  req.body.ingredients = ingredients
+  
+  console.log(req.body);
   try {
     const recipe = await Recipe.create(req.body);
+
     res.redirect(`/recipes/${recipe._id}`);
   } catch (err) {
     res.render("recipes/new", {

@@ -1,40 +1,40 @@
 <%- include('../partials/header') %>
 
-<!-- Create the new recipe by adding the ingredients one by one, and adding the howTo as one string-->
+  <!-- Create the new recipe by adding the ingredients one by one, and adding the howTo as one string-->
 
 
-<div class="container mt-5">
+  <div class="container mt-5">
 
-  <h1>Edit Recipe</h1>
+    <h1>Edit Recipe</h1>
 
-  <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
+    <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
 
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input class="form-control" name="title" value="<%= recipe.title %>">
-    </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" name="title" value="<%= recipe.title %>">
+      </div>
 
-    <div class="form-group">
-      <label for="ingredients">Ingredients</label>
-      <input class="form-control" name="ingredients" value="<%= recipe.ingredients %>">
-    </div>
+      <% let ingredientsString='' ; recipe.ingredients.forEach(function(ing) { ingredientsString +=ing.name + ' - ' +
+        ing.amount + ' ' ; }); %>
 
-    <div class="form-group">
-      <label for="amount">Amount</label>
-      <input class="form-control" name="amount" value="<%= recipe.amount %>"> 
-    </div>
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
 
-    <div class="form-group">
-      <label for="howTo">How To</label>
-      <textarea class="form-control" name="howTo"><%= recipe.howTo %></textarea>
-    </div>
+          <input class="form-control" name="ingredients" value="<%= ingredientsString %>">
 
-    <button class="btn btn-primary m-3" type="submit">Update Recipe</button>
-
-  </form>
-
-</div>
+        </div>
 
 
-<%- include('../partials/footer') %>
+        <div class="form-group">
+          <label for="howTo">How To</label>
+          <textarea class="form-control" name="howTo"><%= recipe.howTo %></textarea>
+        </div>
 
+        <button class="btn btn-primary m-3" type="submit">Update Recipe</button>
+
+    </form>
+
+  </div>
+
+
+  <%- include('../partials/footer') %>

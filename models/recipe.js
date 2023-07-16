@@ -20,18 +20,25 @@ const reviewSchema = new Schema(
   }
 );
 
+const ingredientSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: String,
+      required: true,
+    },
+  });
+
 const recipeSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
   // reference the ingredients from the model/ingredient schema
-  ingredients: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Ingredient",
-    },
-  ],
+  ingredients: [ingredientSchema],
 
   howTo: {
     type: String,
