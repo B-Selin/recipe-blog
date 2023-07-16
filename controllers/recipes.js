@@ -11,10 +11,34 @@ module.exports = {
 };
 
 async function update(req, res) {
-  req.body.done = !!req.body.done;
+  const recipe = await Recipe.findByIdAndUpdate(req.params.id);
 
-  await Recipe.findByIdAndUpdate(req.params.id, req.body);
-  res.redirect(`/recipes/${req.params.id}`);
+  // get the ingredients data from the views/edit.ejs file and turn them into an array of objects
+  const ingredients = req.body.ingredients.split(",").map((i) => {
+    const [name, amount] = i.split("-").map((part) => part.trim());
+    return {
+      name,
+      amount,
+    };
+    // filter the empty strings from the array
+  }).filter((i) => i.name !== '');
+  
+  console.log(ingredients)
+
+  // update the ingredients array
+
+
+  recipe.title = req.body.title;
+  recipe.howTo = req.body.howTo;
+  recipe.ingredients = ingredients.pop();
+  try {
+    await recipe.save();
+    res.redirect(`/recipes/${recipe._id}`); 
+  } catch (err) {
+
+    res.redirect(`/recipes`);
+  }
+
 }
 
 async function edit(req, res) {
