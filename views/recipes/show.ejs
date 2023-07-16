@@ -36,7 +36,7 @@
 
   <table class="table table-hover">
     <div class="reviews"> 
-      <% if (recipe.reviews.length) { %>
+      <% if (recipe.reviews) { %>
         <table>
           <thead>
             <tr>
@@ -95,13 +95,16 @@
     <% }; %>
     <!-- keep the 'add comment' section out of the if(user._id.equals(recipe.user._id) conditional, but inside the if (user) conditional -->
     <!-- Logged in users can capp comments -->
-    <form class="form" id="add-review-form" method="POST" action="recipes/<%= recipe._id %>/reviews">
+
+    <form class="form" id="content" method="POST" action="/recipes/<%= recipe._id %>/reviews" >
       <div class="form-group">
         <label>Review:</label>
-        <textarea class="form-control"></textarea>
+        <textarea class="form-control" id="content" name="content"></textarea>
       </div>
       <button class="btn btn-primary m-3">Add Review</button>
     </form>
+
+
   <% }; %>
 
   
