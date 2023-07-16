@@ -25,10 +25,13 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  ingredients: {
-    type: String,
-    amount: String,
-  },
+  // reference the ingredients from the model/ingredient schema
+  ingredients: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Ingredient",
+    },
+  ],
 
   howTo: {
     type: String,

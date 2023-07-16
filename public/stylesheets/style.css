@@ -3,7 +3,15 @@ body {
   font: 10rem "Lucida Grande", Helvetica, Arial, sans-serif;
 
 }
-
+.navbar-brand{
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Sacramento', cursive;
+}
+.nav-link{
+  text-align: right;
+  justify-items: flex-end;
+}
 ul {
   list-style-type: none;
 }
