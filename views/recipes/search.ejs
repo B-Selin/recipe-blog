@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+
+  <!-- show the results of the recipe search -->
+  <div class="container">
+    <h3>Search Results</h3>
+    <div class="row">
+      <% recipes.forEach(function(recipe) { %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <p class="card-text">
+                <!-- get the search results from the saerach controller -->
+
+                <!-- show the recipes that has the title containing the search term -->
+              <h5>
+                <%= recipe.title %>
+              </h5>
+              <p>
+                <%= recipe.user.name %>
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+
+    <%- include('../partials/header') %>

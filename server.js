@@ -17,6 +17,8 @@ const usersRouter = require("./routes/users");
 // create the variable for the routers we are going to create
 const recipesRouter = require("./routes/recipes");
 const reviewsRouter = require("./routes/reviews");
+const searchRouter = require("./routes/search");
+
 
 var app = express();
 
@@ -52,6 +54,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/recipes", recipesRouter);
 app.use("/", reviewsRouter);
+app.use(searchRouter);
 
 
 // catch 404 and forward to error handler
