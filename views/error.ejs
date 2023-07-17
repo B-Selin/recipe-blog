@@ -1,3 +1,15 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<div class="text-center">
+
+  <img src="/assets/IMG_5358.jpeg" class="img-fluid" alt="Error image">
+
+  <h1 class="display-4">
+    <%= message %>
+  </h1>
+
+  <p class="lead">
+    Sorry, there was an error (<%= error.status %>). Our chefs are working hard to fix it!
+  </p>
+
+  <a href="/" class="btn btn-primary">Return Home</a>
+
+</div>

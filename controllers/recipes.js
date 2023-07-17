@@ -30,7 +30,7 @@ async function update(req, res) {
 
   recipe.title = req.body.title;
   recipe.howTo = req.body.howTo;
-  recipe.ingredients = ingredients.pop();
+  recipe.ingredients = ingredients;
   try {
     await recipe.save();
     res.redirect(`/recipes/${recipe._id}`); 
@@ -100,7 +100,7 @@ async function create(req, res) {
 
     res.redirect(`/recipes/${recipe._id}`);
   } catch (err) {
-    res.render("recipes/new", {
+    res.render("error", {
       recipe: req.body,
       errors: err.errors,
     });
