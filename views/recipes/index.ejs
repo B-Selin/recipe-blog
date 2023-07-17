@@ -1,24 +1,26 @@
 <%- include('../partials/header') %>
 
-<!-- create the index page with a link list of every recipe added  -->
-<div class="container">
+  <!-- create the index page with a link list of every recipe added  -->
+  <div class="container">
 
-  <h3>What food are you craving today?</h3>
+    <h3>What food are you craving today?</h3>
 
-  <div class="row">
-    <div class="col-md-6">
-      <ul class="list-group">
-        <% recipes.forEach(function(r) { %>
-          <li class="list-group-item group-hover">
-            <a class="text-reset" href="/recipes/<%= r._id %>">
-              <span class="text-dark"><%= r.title %></span>  
-            </a>          
-          </li>  
-        <% }) %>
-      </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <% recipes.forEach(function(r) { %>
+            <li class="list-group-item group-hover">
+              <a class="text-reset" href="/recipes/<%= r._id %>">
+                <span class="text-dark">
+                  <%= r.title %>
+                </span>
+              </a>
+            </li>
+            <% }) %>
+        </ul>
+      </div>
     </div>
+
   </div>
 
-</div>
-
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>

@@ -17,12 +17,17 @@ body::before {
   height: 100%;
   background-image: url("/images/IMG_5496.jpeg");
   opacity: 0.1;
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: 40%;
+  z-index: -1;
 }
 
+.reviews {
+  align-content: space-evenly !important;
+  align-content: space-between !important;
+  margin-bottom: 3rem;
+}
 
 #searchBtn {
   color: darkslateblue;
@@ -58,12 +63,13 @@ body::before {
 
 .container {
   font-family: 'Handlee', cursive, sans-serif;
+  font-size: 1.5rem;
   padding: 4rem;
 }
 
 .information,
 .form-group {
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: justify;
   text-justify: inter-word;
   font-family: 'Handlee', cursive, sans-serif;
@@ -72,7 +78,7 @@ body::before {
 
 .aboutMe,
 .aboutMeHeader {
-  margin: 1rem;
+  margin: 1.2rem;
   font-family: 'Handlee', cursive, sans-serif;
   text-align: justify;
   text-justify: inter-word;
