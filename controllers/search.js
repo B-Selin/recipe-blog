@@ -11,7 +11,10 @@ async function search(req, res) {
     // case insensitive regex
   const searchPattern = new RegExp(query, 'i');
   const recipes = await Recipe.find({
-    title: { $regex: searchPattern }
+    $or: [
+      {title: {$regex: searchPattern}},
+      {'ingredients.name': {$regex: searchPattern}}
+    ]
     });
   res.render("recipes/index", {
     recipes,
