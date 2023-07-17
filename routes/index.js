@@ -37,3 +37,8 @@ router.get("/logout", function (req, res) {
   });
 });
 module.exports = router;
+
+// AboutMe route
+router.get("/about", function (req, res) {
+  res.render("about", { title: "About Me" });
+  });

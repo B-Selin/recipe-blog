@@ -1,7 +1,20 @@
 body {
+  margin: 5rem;
   padding: 5rem;
+
   font: 10rem "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("assets/IMG_5358.jpeg");
+  /* add background image from assets/IMG-5338.jpeg */
+  background-image: url("../assets/IMG_5358.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#welcomeTitle {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Sacramento', cursive;
+  color: darkslateblue;
 }
 
 .navbar-brand {
@@ -13,6 +26,22 @@ body {
 .nav-link {
   text-align: right;
   justify-items: flex-end;
+}
+
+.information {
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Handlee', cursive, sans-serif;
+  padding: 1rem;
+}
+
+.aboutMe,
+.aboutMeHeader {
+  margin: 1rem;
+  font-family: 'Handlee', cursive, sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 ul {
