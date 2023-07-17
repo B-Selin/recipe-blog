@@ -1,17 +1,20 @@
 body {
   padding: 5rem;
   font: 10rem "Lucida Grande", Helvetica, Arial, sans-serif;
-
+  background-image: url("assets/IMG_5358.jpeg");
 }
-.navbar-brand{
+
+.navbar-brand {
   font-size: 2rem;
   font-weight: bold;
   font-family: 'Sacramento', cursive;
 }
-.nav-link{
+
+.nav-link {
   text-align: right;
   justify-items: flex-end;
 }
+
 ul {
   list-style-type: none;
 }
@@ -19,7 +22,7 @@ ul {
 .footer {
   position: fixed;
   left: 0;
-  bottom: 1rem;
+  bottom: 0.5rem;
   width: 100%;
   color: darkgray;
   text-align: center;
