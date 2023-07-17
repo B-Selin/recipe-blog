@@ -44,10 +44,54 @@ Some future enhancements include adding categories, image uploads, social featur
 
 Visit the [Trello board](https://trello.com/b/8TjLXywF/food-blog) to view tasks and progress.
 
-Visit the [deployed app](https://leblanc-family-recipes.herokuapp.com/) to view the live site.
+Visit the [deployed app](https://leblanc-recipes-d950544771a6.herokuapp.com//) to view the live site.
+
+## Sample Code
+
+#### Sample route
+```js
+// Recipe routes
+// GET /recipes
+router.get('/', recipesCtrl.index); 
+```
+
+
+#### Sample controller
+```js
+async function index(req, res) {
+  const recipes = await Recipe.find();
+  res.render('recipes/index', {recipes});
+}
+```
+
+#### Sample model
+```js
+const recipeSchema = new Schema({
+  title: {type: String, required: true},
+  ingredients: [IngredientSchema],
+  instructions: {type: String, required: true}
+});
+```
+
+#### Sample view
+```js
+<% recipes.forEach(function(recipe) { %>
+  <div>
+    <h2><%= recipe.title %></h2>
+    <p><%= recipe.instructions %></p>
+  </div>
+<% }) %>
+```
+
+
 
 ## Ice Box Items
 
 - Multiple ingredient search
 - Add recipe photos
 - Add categories
+
+
+## Contact Me
+For any questions or suggestions, feel free to reach out via:
+- LinkedIn : [Selin LeBlanc](https://www.linkedin.com/in/selin-leblanc/)
