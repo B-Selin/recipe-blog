@@ -1,17 +1,30 @@
 body {
   margin: 5rem;
-  padding: 5rem;
+  padding: 2rem;
 
   font: 10rem "Lucida Grande", Helvetica, Arial, sans-serif;
   /* add background image from assets/IMG-5338.jpeg */
-  background-image: url("../assets/IMG_5358.jpeg");
+
   background-size: cover;
   background-repeat: no-repeat;
 
 }
 
+#searchBtn {
+  color: darkslateblue;
+  border-color: darkslateblue;
+}
+
+#searchBtn:hover {
+  color: white;
+  background-color: darkslateblue;
+  transition: background-color 0.3s, color 0.3s
+}
+
+
 #welcomeTitle {
   font-size: 4rem;
+  padding-bottom: 3rem;
   font-weight: bold;
   font-family: 'Sacramento', cursive;
   color: darkslateblue;
@@ -20,6 +33,7 @@ body {
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
+
   font-family: 'Sacramento', cursive;
 }
 
@@ -28,7 +42,13 @@ body {
   justify-items: flex-end;
 }
 
-.information {
+.container {
+  font-family: 'Handlee', cursive, sans-serif;
+  padding: 4rem;
+}
+
+.information,
+.form-group {
   font-size: 1rem;
   text-align: justify;
   text-justify: inter-word;
@@ -57,10 +77,49 @@ ul {
   text-align: center;
 }
 
+#addIngredient.btn-primary,
+#saveRecipe.btn-primary,
+#addReview.btn-primary,
+#updateRecipe.btn-primary {
+  border-color: darkslateblue;
+  color: darkslateblue;
+  background-color: antiquewhite;
+}
+
+#addIngredient.btn-primary:hover,
+#saveRecipe.btn-primary:hover,
+#addReview.btn-primary:hover,
+#updateRecipe.btn-primary:hover {
+
+  background-color: rgb(214, 201, 185);
+}
+
 
 
 .login img {
   height: 2rem;
   justify-content: right;
   align-items: center;
+}
+
+@media only screen and (max-width: 1400px) {
+  a.navbar-brand {
+    font-size: 1rem;
+  }
+
+  a.nav-link {
+    font-size: 1rem;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  a.navbar-brand {
+    font-size: 1rem;
+  }
+
+  a.nav-link {
+    font-size: 1rem;
+  }
+
 }

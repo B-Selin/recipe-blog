@@ -3,20 +3,17 @@
   <!-- show the title of the recipe-->
   <div class="container">
 
-    <div class="card mb-3">
+    <div class="card mb-4">
       <div class="card-body">
-        <h5 class="card-title">
+        <h4 class="card-title fs-1">
           <%= recipe.title %>
-        </h5>
-
-        <!-- add the user who created the recipe -->
-        <p class="card-text">By <%= recipe.user.name %>
-        </p>
+            <small class="text-muted fs-6">By <%= recipe.user.name %></small>
+        </h4>
       </div>
     </div>
 
     <!-- show the ingredients as an unordered list  -->
-    <div class="card mb-3">
+    <div class="card mb-3 fs-3">
       <div class="card-header">
         Ingredients
       </div>
@@ -32,7 +29,7 @@
     </div>
 
     <!-- explain how to make the recipe -->
-    <div class="card mb-3">
+    <div class="card mb-3 fs-3">
       <div class="card-header">
         How to:
       </div>
@@ -45,7 +42,7 @@
 
 
     <table class="table table-hover">
-      <div class="reviews">
+      <div class="reviews fs-3">
         <% if (recipe.reviews) { %>
           <table>
             <thead>
@@ -91,19 +88,21 @@
 
       <% if(user._id.equals(recipe.user._id)) { %>
         <!-- edit button that will send user to edit form -->
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center">
 
           <div>
-            <button class="btn btn-warning">
-              <a href="/recipes/<%= recipe._id %>/edit" class="text-white">Edit</a>
+            <button class="btn btn-warning p-2 m-2"
+              style="color: darkslateblue; background-color: #F0DDD7; border-color: #9A8CAD;">
+              <a href="/recipes/<%= recipe._id %>/edit" class="text-dark">Edit</a>
             </button>
           </div>
 
 
           <!-- delete button -->
-          <div>
+          <div class="d-flex justify-content-center m-2">
             <form id="delete" action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-              <button type="submit" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-danger p-2"
+                style="color:darkslateblue; background-color: #D1C1BC; border-color: #9A8CAD;">Delete</button>
             </form>
           </div>
         </div>
@@ -111,14 +110,16 @@
         <% }; %>
           <!-- keep the 'add comment' section out of the if(user._id.equals(recipe.user._id) conditional, but inside the if (user) conditional -->
           <!-- Logged in users can capp comments -->
+          <div class="col-md-6 m-auto">
+            <form class="form fs-6" id="content" method="POST" action="/recipes/<%= recipe._id %>/reviews">
+              <div class="form-group">
+                <label>Review:</label>
+                <textarea class="form-control" id="content" name="content"></textarea>
+              </div>
+              <button class="btn btn-primary m-3" id="addReview">Add Review</button>
+            </form>
+          </div>
 
-          <form class="form" id="content" method="POST" action="/recipes/<%= recipe._id %>/reviews">
-            <div class="form-group">
-              <label>Review:</label>
-              <textarea class="form-control" id="content" name="content"></textarea>
-            </div>
-            <button class="btn btn-primary m-3">Add Review</button>
-          </form>
 
 
           <% }; %>
