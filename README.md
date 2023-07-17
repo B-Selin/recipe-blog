@@ -44,7 +44,7 @@ Some future enhancements include adding categories, image uploads, social featur
 
 Visit the [Trello board](https://trello.com/b/8TjLXywF/food-blog) to view tasks and progress.
 
-Visit the [deployed app](https://leblanc-recipes-d950544771a6.herokuapp.com//) to view the live site.
+Visit the [deployed app](https://leblanc-recipes-d950544771a6.herokuapp.com/) to view the live site.
 
 ## Sample Code
 
