@@ -41,9 +41,9 @@
 
 
 
-    <table class="table table-hover">
-      <div class="reviews">
-        <% if (recipe.reviews) { %>
+    <div class="reviews">
+      <% if (recipe.reviews.length> 0) { %>
+        <table class="table table-hover">
           <table>
             <thead>
               <tr>
@@ -75,11 +75,11 @@
                 <% }); %>
             </tbody>
           </table>
-          <% } else { %>
-            <h5>No Reviews Yet</h5>
-            <% } %>
-      </div>
-    </table>
+        </table>
+        <% } else { %>
+          <h5>No Reviews Yet</h5>
+          <% } %>
+    </div>
 
 
 
