@@ -80,7 +80,8 @@ ul {
 #addIngredient.btn-primary,
 #saveRecipe.btn-primary,
 #addReview.btn-primary,
-#updateRecipe.btn-primary {
+#updateRecipe.btn-primary,
+#returnHome.btn-primary {
   border-color: darkslateblue;
   color: darkslateblue;
   background-color: antiquewhite;
@@ -89,7 +90,8 @@ ul {
 #addIngredient.btn-primary:hover,
 #saveRecipe.btn-primary:hover,
 #addReview.btn-primary:hover,
-#updateRecipe.btn-primary:hover {
+#updateRecipe.btn-primary:hover,
+#returnHome.btn-primary:hover {
 
   background-color: rgb(214, 201, 185);
 }
