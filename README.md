@@ -50,8 +50,6 @@ Visit the [deployed app](https://leblanc-recipes-d950544771a6.herokuapp.com/) to
 
 #### Sample route
 ```js
-// Recipe routes
-// GET /recipes
 router.get('/', recipesCtrl.index); 
 ```
 
@@ -67,9 +65,21 @@ async function index(req, res) {
 #### Sample model
 ```js
 const recipeSchema = new Schema({
-  title: {type: String, required: true},
-  ingredients: [IngredientSchema],
-  instructions: {type: String, required: true}
+  title: {
+    type: String,
+    required: true,
+  },
+  ingredients: [ingredientSchema],
+
+  howTo: {
+    type: String,
+    required: true,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  reviews: [reviewSchema],
 });
 ```
 
@@ -83,6 +93,26 @@ const recipeSchema = new Schema({
 <% }) %>
 ```
 
+#### Search Query
+```js
+async function search(req, res) {
+  const { query } = req.query;
+    // case insensitive regex
+  const searchPattern = new RegExp(query, 'i');
+  const recipes = await Recipe.find({
+    $or: [
+      {title: {$regex: searchPattern}},
+      {'ingredients.name': {$regex: searchPattern}}
+    ]
+    });
+  res.render("recipes/index", {
+    recipes,
+    query
+  });
+}
+```
+
+
 
 
 ## Ice Box Items
@@ -93,5 +123,5 @@ const recipeSchema = new Schema({
 
 
 ## Contact Me
-For any questions or suggestions, feel free to reach out via:
+Questions and suggestions are welcome, feel free to reach out via:
 - LinkedIn : [Selin LeBlanc](https://www.linkedin.com/in/selin-leblanc/)
