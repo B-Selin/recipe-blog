@@ -26,11 +26,11 @@ The main features include:
 
 The code is organized using the MVC pattern - the routes define endpoints which call controller actions that interact with database models and render views to be sent back to the client.
 
-Security is handled through sessions and authentication middleware. User passwords are securely hashed before storing in the database.
+Security is handled through sessions and authentication middleware.
 
 The app is deployed live on Heroku with MongoDB Atlas hosting the cloud database.
 
-Some future enhancements include adding categories, image uploads, social features, and custom API endpoints.
+Some future enhancements include adding categories, image uploads, and multiple ingredient search.
 ## Technologies Used
 
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
