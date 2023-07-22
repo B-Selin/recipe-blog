@@ -33,9 +33,9 @@
       <div>
         <!-- search bar -->
         <form class="d-flex" action="/search" method="get">
-          <input class="form-control me-2" type="search" name="query" id="searchBtn" placeholder="Search"
+          <input class="form-control me-2" type="search" name="query" id="search" placeholder="Let's cook"
             aria-label="Search">
-          <button class="btn btn-outline-success" id="searchBtn" type="submit">Search</button>
+          <button class="btn btn-outline-success" id="searchBtn" type="submit">Go</button>
         </form>
       </div>
 
@@ -61,8 +61,8 @@
             </li>
 
             <% } else { %>
-              <li class="nav-item ms-2">
-                <a href="/auth/google" class="login"><img src="https://i.imgur.com/FHjYyi0.png"></a>
+              <li class="nav-item">
+                <a href="/auth/google" class="nav-link">Log In</a>
               </li>
               <% } %>
         </ul>

@@ -101,7 +101,8 @@ ul {
 #saveRecipe.btn-primary,
 #addReview.btn-primary,
 #updateRecipe.btn-primary,
-#returnHome.btn-primary {
+#returnHome.btn-primary,
+#addRecipe.btn-primary {
   border-color: darkslateblue;
   color: darkslateblue;
   background-color: antiquewhite;
@@ -111,7 +112,8 @@ ul {
 #saveRecipe.btn-primary:hover,
 #addReview.btn-primary:hover,
 #updateRecipe.btn-primary:hover,
-#returnHome.btn-primary:hover {
+#returnHome.btn-primary:hover,
+#addRecipe.btn-primary:hover {
 
   background-color: rgb(214, 201, 185);
 }
